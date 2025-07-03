@@ -1,18 +1,20 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { supabase } from "../supabaseClient"; // Ensure this path is correct
 
 function SignUp() {
     const [userInformation, setUserInformation] = useState({ name: "", email: "", permission: false });
     const [error, setError] = useState("");
 
-    async function callHelloFunction(action,data) {
+    async function callEdgeFunctions(action) {
         const { data, error } = await supabase.functions.invoke('smart-api', {
-            body: { action: action, data: data },
-        })
+            body: { action : action, data: userInformation },
+        });
         if (error) {
-            console.error('Error calling function:', error);
-        } else {
-            console.log('Function response:', data);
+            setError(error.message);
+            console.error('Error calling edge function:', error);
+            return;   
+        }else{
+            console.log('Edge function response:', data);
         }
     }
 
@@ -27,63 +29,46 @@ function SignUp() {
     }
 
     function handleSubmit(e) {
+        if(!userInformation.name || !userInformation.email) {
+            setError("Name and Email are required.");
+            return;
+        }
+        if(!userInformation.permission) {
+            setError("You must agree to the terms.");
+            return;
+        } 
+
         e.preventDefault(); // prevent page refresh
+
         console.log("User Information Submitted:", userInformation);
-        //addEntryToDatabase();
-        callHelloFunction("insert", {name: userInformation.name, email: userInformation.email});
+        callEdgeFunctions("insert");
+
         setUserInformation({ name: "", email: "", permission: false });
     }
 
-    useEffect(() => {
-        console.log(userInformation);
-    }, [userInformation]);
+    // async function callApiFrontEnd(){
+    //      try {
+    //         const { data, error } = await supabase
+    //             .from('Waitlist')
+    //             .insert([{ name: userInformation.name, email: userInformation.email}]);
 
-    function validateEmail(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(String(email).toLowerCase());
-    }
-
-    async function validateUserInformation() {
-        const { name, email, permission } = userInformation;
-
-        if (!permission) {
-            setError("You must grant permission by checking the box to be added to the database.");
-            console.error('Permission not granted. Entry not added to database.');
-            return;
-        }
-
-        if (!validateEmail(email)) {
-            setError("Please enter a valid email address.");
-            console.error('Invalid email address. Entry not added to database.');
-            return;
-        }
-
-        setError("");
-
-        try {
-
-            const { data, error } = await supabase
-                .from('Waitlist')
-                .insert([{ Name: name, Email: email }]);
-
-            if (error) {
-                setError(error.message);
-                console.error('Error inserting row:', error);
-            } else {
-                console.log('Inserted row:', data);
-            }
-        } catch (err) {
-            setError("Unexpected error occurred.");
-            console.error('Unexpected error:', err);
-        }
-    }
-
-
+    //         if (error) {
+    //             setError(error.message);
+    //             console.error('Error inserting row:', error);
+    //         } else {
+    //             console.log('Inserted row:', data);
+    //         }
+    //     } catch (err) {
+    //         setError("Unexpected error occurred.");
+    //         console.error('Unexpected error:', err);
+    //     }
+    // }
 
     return (
         <form onSubmit={handleSubmit}>
-            <input name="name" value={userInformation.name} onChange={handleChange} />
-            <input name="email" value={userInformation.email} onChange={handleChange} />
+            <input name="name" placeholder="name" value={userInformation.name} onChange={handleChange} />
+            <input name="email" placeholder="email" value={userInformation.email} onChange={handleChange} />
+            <p>By clicking this you agree to hear from us in the future</p>
             <input
                 name="permission"
                 type="checkbox"
