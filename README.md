@@ -1,5 +1,5 @@
 # Getting Started with Create React App
-
+Live on: https://callum-anderson0.github.io/seymourmagazine/
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
