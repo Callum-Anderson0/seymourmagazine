@@ -1,6 +1,6 @@
-import SignUp from "./components/SignUp";
-import StripeButton from "./components/StripeButton";
-
+import LandingPad from "./components/LandingPad";
+import Information from "./components/Information";
+import Legal from "./components/Legal";
 function App() {
   return (
     <div className="App">
@@ -10,9 +10,9 @@ function App() {
       <meta property="og:url" content="https://seymourmagazine.com" />
       <meta name="twitter:card" content="summary_large_image" />
 
-      <h1>Welcome to the Sign Up Page</h1>
-      <SignUp />
-      <StripeButton />
+      <LandingPad />
+      <Information />
+      <Legal />
     </div>
   );
 }
