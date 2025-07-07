@@ -1,6 +1,7 @@
 import LandingPad from "./components/LandingPad";
 import Information from "./components/Information";
 import Legal from "./components/Legal";
+import Header from "./components/Header";
 function App() {
   return (
     <div className="App">
@@ -10,6 +11,7 @@ function App() {
       <meta property="og:url" content="https://seymourmagazine.com" />
       <meta name="twitter:card" content="summary_large_image" />
 
+      <Header />
       <LandingPad />
       <Information />
       <Legal />
