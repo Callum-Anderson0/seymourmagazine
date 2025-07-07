@@ -68,66 +68,54 @@ function SignUp() {
   // }
 
   return (
-    /* Multi-line
-     
-        <form onSubmit={handleSubmit}>
-            <input name="name" placeholder="name" value={userInformation.name} onChange={handleChange} />
-            <input name="email" placeholder="email" value={userInformation.email} onChange={handleChange} />
-            <p>By clicking this you agree to hear from us in the future</p>
-            <input
-                name="permission"
-                type="checkbox"
-                checked={userInformation.permission}
-                onChange={handleCheckbox}
-            />
-            <button type="submit">Sign Up</button>
-            <p style={{color: "red", minHeight: '1em'}}>{error}</p>
-        </form>
-        comment here */
-    <div>
+    <div className="py-8 px-2">
       <form
         onSubmit={handleSubmit}
-        className="bg-gray-100 rounded-lg p-6 max-w-4xl mx-auto text-gray-900"
+        className="bg-white/80 rounded-xl p-8 w-full max-w-2xl mx-auto text-gray-900 backdrop-blur-sm"
       >
-        <p>Sign up to our mailing list here.</p>
+        <h2 className="mb-4 text-center text-gray-700 font-bold text-2xl">
+          Sign up to our mailing list here.
+        </h2>
         <div className="flex flex-col lg:flex-row lg:space-x-6 gap-4">
           <input
             name="name"
             placeholder="Name"
             value={userInformation.name}
             onChange={handleChange}
-            className="flex-1 rounded-md px-3 py-2 text-gray-900 bg-gray-700"
+            className="flex-1 rounded-md px-3 py-2 text-gray-900 bg-gray-50 focus:ring-2 focus:ring-gray-200 focus:outline-none transition"
           />
           <input
             name="email"
             placeholder="Email"
             value={userInformation.email}
             onChange={handleChange}
-            className="flex-1 rounded-md px-3 py-2 text-gray-900 bg-gray-700"
+            className="flex-1 rounded-md px-3 py-2 text-gray-900 bg-gray-50 focus:ring-2 focus:ring-gray-200 focus:outline-none transition"
           />
         </div>
 
-        <div className="flex items-center space-x-2 mt-2">
-          <input
-            name="permission"
-            type="checkbox"
-            checked={userInformation.permission}
-            onChange={handleCheckbox}
-            className="form-checkbox h-5 w-5 text-gray-600 bg-gray-700"
-          />
-          <span className="text-gray-900 text-sm">
-            By clicking this you agree to hear from us in the future
-          </span>
+        <div className="flex flex-col items-center justify-center mt-4">
+          <div className="flex items-center space-x-2">
+            <input
+              name="permission"
+              type="checkbox"
+              checked={userInformation.permission}
+              onChange={handleCheckbox}
+              className="form-checkbox h-5 w-5 text-gray-600 focus:ring-2 focus:ring-gray-200"
+            />
+            <span className="text-gray-700 text-sm">
+              By clicking this you agree to hear from us in the future
+            </span>
+          </div>
         </div>
 
         <button
           type="submit"
-          className="mt-4 w-full lg:w-auto bg-gray-700 text-gray-400 hover:bg-gray-600 transition-colors rounded-md py-2 px-8 font-semibold"
+          className="mt-6 w-full flex justify-center bg-gray-800 text-white hover:bg-gray-700 transition-colors rounded-md py-2 px-8 font-semibold"
         >
           Sign Up
         </button>
 
-        <p className="text-red-500 min-h-[1em] mt-2">{error}</p>
+        <p className="text-red-500 min-h-[1em] mt-2 text-center">{error}</p>
       </form>
     </div>
   );

@@ -1,5 +1,3 @@
-import SignUp from "./SignUp";
-
 function LandingPad() {
   return (
     <div
