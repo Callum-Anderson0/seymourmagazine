@@ -68,13 +68,13 @@ function SignUp() {
   // }
 
   return (
-    <div className="py-8 px-2">
+    <div className="py-2 px-2">
       <form
         onSubmit={handleSubmit}
         className="bg-white/80 rounded-xl p-8 w-full max-w-2xl mx-auto text-gray-900 backdrop-blur-sm"
       >
-        <h2 className="mb-4 text-center text-gray-700 font-bold text-2xl">
-          Sign up to our mailing list here.
+        <h2 className="mb-4 text-center text-gray-800 font-bold text-2xl">
+          MAILING LIST
         </h2>
         <div className="flex flex-col lg:flex-row lg:space-x-6 gap-4">
           <input
@@ -102,7 +102,7 @@ function SignUp() {
               onChange={handleCheckbox}
               className="form-checkbox h-5 w-5 text-gray-600 focus:ring-2 focus:ring-gray-200"
             />
-            <span className="text-gray-700 text-sm">
+            <span className="text-gray-800 text-sm">
               By clicking this you agree to hear from us in the future
             </span>
           </div>
@@ -112,7 +112,7 @@ function SignUp() {
           type="submit"
           className="mt-6 w-full flex justify-center bg-gray-800 text-white hover:bg-gray-700 transition-colors rounded-md py-2 px-8 font-semibold"
         >
-          Sign Up
+          ✨SIGN UP✨
         </button>
 
         <p className="text-red-500 min-h-[1em] mt-2 text-center">{error}</p>
