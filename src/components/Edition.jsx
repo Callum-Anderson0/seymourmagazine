@@ -39,7 +39,9 @@ function Edition() {
           className="flex flex-col items-center justify-center gap-2"
           delay={0}
         >
-          <h2 className="text-center text-gray-800 font-bold text-lg">LINKS</h2>
+          <h2 className="text-2xl font-bold text-center text-gray-800">
+            LINKS
+          </h2>
           <a
             href="https://www.instagram.com/seymourmagazine/"
             target="_blank"
