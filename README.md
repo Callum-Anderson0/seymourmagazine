@@ -1,70 +1,81 @@
-# Getting Started with Create React App
-Live on: https://callum-anderson0.github.io/seymourmagazine/
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Seymour Magazine
 
-## Available Scripts
+**Live site:** [https://seymourmagazine.com](https://seymourmagazine.com)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+A modern, responsive landing page and magazine site built with React, Tailwind CSS, Supabase, and Stripe. Features include user sign-up, payment integration, legal compliance, and automated deployment to GitHub Pages with a custom domain.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Modern responsive design** with Tailwind CSS
+- **Animated UI** (fade-in effects)
+- **User sign-up** form (Supabase backend)
+- **Stripe payment integration**
+- **Legal compliance**: Privacy, refund, shipping, and contact policies (UK/Stripe ready)
+- **Social media integration**: Instagram link, Open Graph & Twitter Card meta tags
+- **Optimized images** for fast loading
+- **Automated deployment** to GitHub Pages with custom domain and CNAME
+- **SEO and social sharing** ready
 
-### `npm test`
+## Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
+- Node.js (v18+ recommended)
+- npm
 
-### `npm run build`
+### Installation
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/yourusername/seymourmagazine.git
+   cd seymourmagazine
+   ```
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Development
+Run the app locally:
+```sh
+npm start
+```
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Testing
+Run tests with:
+```sh
+npm test
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Build
+Create a production build:
+```sh
+npm run build
+```
 
 ### Deployment
+Deploy to GitHub Pages and your custom domain with:
+```sh
+npm run deploy
+```
+- The `CNAME` file in `public/` ensures your custom domain is set automatically.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Project Structure
+- `src/` — React components and app logic
+- `public/` — Static assets, icons, CNAME, and meta images
+- `supabase/` — Supabase Edge Functions (backend logic)
 
-### `npm run build` fails to minify
+## Customization
+- **Images:** Replace images in `public/` as needed (e.g., `twitter cover.png`, `seym wallpaper web (1).webp`)
+- **Legal:** Update policy text in `src/components/Legal.jsx`
+- **Meta tags:** Edit `public/index.html` for Open Graph/Twitter/SEO
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Credits
+- Built with [Create React App](https://github.com/facebook/create-react-app)
+- UI: [Tailwind CSS](https://tailwindcss.com/)
+- Backend: [Supabase](https://supabase.com/)
+- Payments: [Stripe](https://stripe.com/)
+
+## License
+This project is for demonstration and freelance use. For commercial or template licensing, contact the author.
