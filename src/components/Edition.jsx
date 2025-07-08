@@ -5,7 +5,7 @@ function Edition() {
   return (
     <div className="edition-container p-0 md:p-8 flex flex-col md:flex-row md:items-start gap-6">
       {/* Image first on small, right side on large */}
-      <div className="w-full md:w-1/2 order-1 :order-2 flex">
+      <div className="w-full md:w-1/2 order-1 md:order-2 flex">
         <FadeContent className="w-full">
           <img
             src="/first edition.jpg"

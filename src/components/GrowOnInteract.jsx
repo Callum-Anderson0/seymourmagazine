@@ -3,14 +3,14 @@ import { useRef } from "react";
 /**
  * GrowOnInteract wraps a child element and provides a grow-on-hover and pop-on-click animation.
  * Usage:
- * <GrowOnInteract><img ... /></GrowOnInteract>
+ * <GrowOnInteract hoverScale={1.05} clickScale={1.075}><img ... /></GrowOnInteract>
  */
 function GrowOnInteract({ children, hoverScale = 1.05, clickScale = 1.075 }) {
   const ref = useRef(null);
 
   // Click pop animation
   const handleClick = (e) => {
-    if (children.props.onClick) children.props.onClick(e);
+    if (children.props && children.props.onClick) children.props.onClick(e);
     const el = ref.current;
     if (!el) return;
     el.style.transition = "transform 0.18s cubic-bezier(0.4, 0, 0.2, 1)";

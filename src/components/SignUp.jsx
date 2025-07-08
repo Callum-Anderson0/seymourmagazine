@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { supabase } from "../supabaseClient"; // Ensure this path is correct
+import GrowOnInteract from "./GrowOnInteract";
 
 function SignUp() {
   const [userInformation, setUserInformation] = useState({
@@ -19,6 +20,15 @@ function SignUp() {
       return;
     } else {
       console.log("Edge function response:", data);
+      if (
+        data &&
+        typeof data.message === "string" &&
+        data.message.toLowerCase().includes("error")
+      ) {
+        setError(data.message);
+      } else {
+        setError("");
+      }
     }
   }
 
@@ -82,14 +92,14 @@ function SignUp() {
             placeholder="Name"
             value={userInformation.name}
             onChange={handleChange}
-            className="flex-1 rounded-md px-3 py-2 text-gray-900 bg-gray-50 focus:ring-2 focus:ring-gray-200 focus:outline-none transition"
+            className="flex-1 rounded-full px-3 py-2 text-gray-900 bg-gray-50 focus:ring-2 focus:ring-gray-200 focus:outline-none transition"
           />
           <input
             name="email"
             placeholder="Email"
             value={userInformation.email}
             onChange={handleChange}
-            className="flex-1 rounded-md px-3 py-2 text-gray-900 bg-gray-50 focus:ring-2 focus:ring-gray-200 focus:outline-none transition"
+            className="flex-1 rounded-full px-3 py-2 text-gray-900 bg-gray-50 focus:ring-2 focus:ring-gray-200 focus:outline-none transition"
           />
         </div>
 
@@ -108,12 +118,16 @@ function SignUp() {
           </div>
         </div>
 
-        <button
-          type="submit"
-          className="mt-6 w-full flex justify-center bg-gray-800 text-white hover:bg-gray-700 transition-colors rounded-full py-2 px-8 font-semibold"
-        >
-          🌀 SIGN UP 🌀
-        </button>
+        <div className="flex w-full justify-center mt-6">
+          <GrowOnInteract className="w-full">
+            <button
+              type="submit"
+              className="w-full min-w-[220px] flex justify-center bg-gray-800 text-white hover:bg-gray-700 transition-colors rounded-full py-2 px-12 font-semibold"
+            >
+              🌀 SIGN UP 🌀
+            </button>
+          </GrowOnInteract>
+        </div>
 
         <p className="text-red-500 min-h-[1em] mt-2 text-center">{error}</p>
       </form>

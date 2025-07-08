@@ -6,7 +6,7 @@ export default function StripeButton() {
 
   return (
     <button
-      className="w-full flex justify-center bg-gray-800 text-white hover:bg-gray-700 transition-colors rounded-full py-2 px-8 font-semibold"
+      className="w-full min-w-[220px] flex justify-center bg-gray-800 text-white hover:bg-gray-700 transition-colors rounded-full py-2 px-8 font-semibold whitespace-nowrap"
       onClick={handleClick}
     >
       🌀 GET YOUR COPY HERE 🌀
