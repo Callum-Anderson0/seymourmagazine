@@ -3,9 +3,9 @@ import SignUp from "./SignUp";
 
 function Edition() {
   return (
-    <div className="edition-container p-0 md:p-8 flex flex-col lg:flex-row lg:items-start gap-6">
+    <div className="edition-container p-0 md:p-8 flex flex-col md:flex-row md:items-start gap-6">
       {/* Image first on small, right side on large */}
-      <div className="w-full lg:w-1/2 order-1 lg:order-2 flex">
+      <div className="w-full md:w-1/2 order-1 :order-2 flex">
         <FadeContent className="w-full">
           <img
             src="/first edition.jpg"
@@ -16,7 +16,7 @@ function Edition() {
       </div>
 
       {/* Text content */}
-      <div className="order-2 lg:order-1 lg:w-1/2 lg:mt-8 flex flex-col justify-between items-stretch md:gap-4 h-full min-h-[400px] text-gray-800 font-medium">
+      <div className="order-2 md:order-1 md:w-1/2 md:mt-8 flex flex-col justify-between items-stretch md:gap-4 h-full min-h-[400px] text-gray-800 font-medium">
         <FadeContent className="flex justify-center" delay={0}>
           <h2 className="text-2xl font-bold text-center">MARCH EDITION</h2>
         </FadeContent>
@@ -31,7 +31,7 @@ function Edition() {
         </FadeContent>
         <FadeContent
           className="self-center w-full h-full flex justify-center"
-          delay={400}
+          delay={0}
         >
           <SignUp />
         </FadeContent>
