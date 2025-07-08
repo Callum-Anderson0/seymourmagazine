@@ -9,7 +9,7 @@ export default function StripeButton() {
       className="w-full flex justify-center bg-gray-800 text-white hover:bg-gray-700 transition-colors rounded-full p-8 py-2 px-8 font-semibold"
       onClick={handleClick}
     >
-      ✨GET YOUR COPY HERE✨
+      🌀 GET YOUR COPY HERE 🌀
     </button>
   );
 }
