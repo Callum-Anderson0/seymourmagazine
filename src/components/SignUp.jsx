@@ -124,7 +124,7 @@ function SignUp() {
               type="submit"
               className="w-full min-w-[220px] flex justify-center bg-gray-800 text-white hover:bg-gray-700 transition-colors rounded-full py-2 px-12 font-semibold"
             >
-              🌀 SIGN UP 🌀
+              ☆ SIGN UP ☆
             </button>
           </GrowOnInteract>
         </div>

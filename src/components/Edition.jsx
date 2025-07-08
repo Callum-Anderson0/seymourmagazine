@@ -18,15 +18,17 @@ function Edition() {
       {/* Text content */}
       <div className="order-2 md:order-1 md:w-1/2 md:mt-8 flex flex-col justify-between items-stretch md:gap-4 h-full min-h-[400px] text-gray-800 font-medium">
         <FadeContent className="flex justify-center" delay={0}>
-          <h2 className="text-2xl font-bold text-center">MARCH EDITION</h2>
+          <h2 className="text-2xl font-bold text-center">
+            FIRST EDITION - SOLD OUT (ᗒᗣᗕ)
+          </h2>
         </FadeContent>
         <FadeContent className="" delay={0}>
           <p className="flex-1 self-center text-center text-gray-800">
             the very first edition of seymour is out & about and i’d love for
             you to have one !!! ⭐️ here’s a little sneak peak, but there’s lots
-            and lots more to see 🤓🤓🤓 dm me to order this lovely little
-            collection of poetry, prose, arts and farts - anything goes 🫶 it’ll
-            look fab on your coffee table xx
+            and lots more to see 🤓🤓🤓 this is a lovely little collection of
+            poetry, prose, arts and farts - anything goes 🫶 it’ll look fab on
+            your coffee table xx
           </p>
         </FadeContent>
         <FadeContent
