@@ -86,6 +86,9 @@ function SignUp() {
         <h2 className="mb-4 text-center text-gray-800 font-bold text-2xl">
           MAILING LIST
         </h2>
+        <p className="flex-1 self-center text-center text-gray-800 pb-2">
+          sign up here to be notified when we release our latest edition!!!
+        </p>
         <div className="flex flex-col lg:flex-row lg:space-x-6 gap-4">
           <input
             name="name"
