@@ -10,6 +10,7 @@ function SignUp() {
   });
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   async function callEdgeFunctions(action) {
     setLoading(true);
@@ -32,6 +33,10 @@ function SignUp() {
         setError(data.message);
       } else {
         setError("");
+        setShowSuccess(true);
+        setTimeout(() => {
+          setShowSuccess(false);
+        }, 1000);
       }
     }
     setLoading(false);
@@ -100,7 +105,7 @@ function SignUp() {
       <h2 className="mb-4 text-center text-gray-800 font-bold text-2xl">
         MAILING LIST
       </h2>
-      <p className="flex-1 self-center text-center text-gray-800 pb-2">
+      <p className="text-center text-gray-800 pb-2">
         sign up here to be notified when we release our latest edition!!!
       </p>
       <div className="flex flex-col lg:flex-row lg:space-x-6 gap-4">
@@ -139,9 +144,9 @@ function SignUp() {
         <GrowOnInteract className="w-full">
           <button
             type="submit"
-            className="w-full min-w-[220px] flex justify-center bg-gray-800 text-white hover:bg-gray-700 transition-colors rounded-full py-2 px-12 font-semibold"
+            className="w-full min-w-[220px] h-[45.6px] flex items-center justify-center bg-gray-800 text-white hover:bg-gray-700 transition-colors rounded-full px-12 font-semibold relative overflow-hidden"
           >
-            {!loading && <p>☆ SIGN UP ☆</p>}
+            {!loading && !showSuccess && <p>☆ SIGN UP ☆</p>}
             {loading && (
               <svg
                 className="animate-spin h-5 w-5 text-white"
@@ -163,6 +168,14 @@ function SignUp() {
                   d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
                 />
               </svg>
+            )}
+            {!loading && showSuccess && (
+              <span
+                className="transition-opacity duration-500 opacity-100"
+                style={{ transition: 'opacity 0.5s', opacity: showSuccess ? 1 : 0 }}
+              >
+                ✓
+              </span>
             )}
           </button>
         </GrowOnInteract>

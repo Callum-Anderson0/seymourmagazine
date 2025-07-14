@@ -23,11 +23,11 @@ function Edition() {
           </h2>
         </FadeContent>
         <FadeContent className="" delay={0}>
-          <p className="flex-1 self-center text-center text-gray-800">
+          <p className="text-center text-gray-800">
             the very first edition of seymour is out & about and i’d love for
             you to have one !!! ⭐️ here’s a little sneak peak, but there’s lots
             and lots more to see 🤓🤓🤓 this is a lovely little collection of
-            poetry, prose, arts and farts - anything goes 🫶 it’ll look fab on
+            poetry, prose, arts and farts - anything goes 🦶 it’ll look fab on
             your coffee table xx
           </p>
         </FadeContent>
