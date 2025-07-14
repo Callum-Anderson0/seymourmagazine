@@ -17,7 +17,7 @@ function LandingPad() {
           ref={logoRef}
           src="/seymourlogo.png"
           alt="Seymour Magazine Logo"
-          className="transition-transform translate-y-[-5%] duration-500 ease-in-out hover:scale-105 active:scale-100"
+          className="transition-transform translate-y-[-10%] md:translate-y-[-5%] duration-500 ease-in-out hover:scale-105 active:scale-100"
           //onClick={handleLogoClick}
           style={{ cursor: "pointer" }}
         />

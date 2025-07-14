@@ -65,6 +65,7 @@ function Legal() {
         </span>
       ))}
       <span>
+        <span>| </span>
         <span
           className="underline cursor-pointer"
           onClick={() => setInformation("")}

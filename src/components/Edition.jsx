@@ -3,10 +3,10 @@ import SignUp from "./SignUp";
 
 function Edition() {
   return (
-    <div className="edition-container p-0 md:p-8 flex flex-col md:flex-row md:items-start gap-6">
+    <div className="edition-container my-auto p-0 md:p-8 flex flex-col md:flex-row md:items-start gap-6 items-center justify-center">
       {/* Image first on small, right side on large */}
-      <div className="w-full md:w-1/2 order-1 md:order-2 flex">
-        <FadeContent className="w-full h-full items-center justify-center">
+      <div className="w-full h-full md:w-1/2 order-1 md:order-2 flex my-auto justify-center items-center">
+        <FadeContent>
           <img
             src="/first edition.jpg"
             alt="Description"
