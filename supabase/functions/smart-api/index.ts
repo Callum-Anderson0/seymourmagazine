@@ -27,12 +27,25 @@ async function confirmationEmail(email, name) {
     if (!response.ok) {
       const errorData = await response.json();
       console.error('Failed to send email:', errorData);
-      return `Successfully added to waitlist, but failed to send confirmation email: ${errorData.message}`;
+      return {
+        success: true,
+        partial: true,
+        message: 'Successfully added to waitlist, but failed to send confirmation email.',
+        error: errorData.message || 'Email send error'
+      };
     }
-    return 'Successfully added to waitlist and sent confirmation email';
+    return {
+      success: true,
+      message: 'Successfully added to waitlist and sent confirmation email.'
+    };
   } catch (error) {
     console.error('Email sending error:', error);
-    return `Successfully added to waitlist, but failed to send confirmation email: ${error.message}`;
+    return {
+      success: true,
+      partial: true,
+      message: 'Successfully added to waitlist, but failed to send confirmation email.',
+      error: error.message || 'Email send error'
+    };
   }
 }
 function validateEmail(email) {
@@ -42,7 +55,11 @@ function validateEmail(email) {
 async function handleInsert(data) {
   const { name: name, email } = data;
   if (!validateEmail(email)) {
-    return `Invalid Email`;
+    return {
+      success: false,
+      message: 'Invalid email address.',
+      error: 'ValidationError'
+    };
   }
   try {
     const { data: insertData, error } = await supabaseClient.from('Waitlist').insert([
@@ -52,39 +69,72 @@ async function handleInsert(data) {
       }
     ]);
     if (error) {
-      console.error("error inserting data", error);
-      return `Error inserting data: ${error.message}`;
+      console.error('Error inserting data', error);
+      return {
+        success: false,
+        message: 'Error inserting data.',
+        error: error.message || 'DatabaseError'
+      };
     } else {
       return await confirmationEmail(email, name);
     }
   } catch (error) {
-    return `Error inserting data: ${error.message}`;
+    return {
+      success: false,
+      message: 'Error inserting data.',
+      error: error.message || 'DatabaseError'
+    };
   }
 }
-Deno.serve(async (req)=>{
+Deno.serve(async (req) => {
   // Handle CORS preflight requests
   if (req.method === 'OPTIONS') {
     return new Response('ok', {
       headers: corsHeaders
     });
   }
-  console.log("Edge function starting");
-  const { action, data } = await req.json();
-  let responseMessage = '';
-  if (action === 'insert') {
-    responseMessage = await handleInsert(data);
-  } else if (action === 'confirmEmail') {
-    responseMessage = await confirmationEmail(data.email, data.name);
-  } else {
-    responseMessage = 'Invalid action';
-  }
-  return new Response(JSON.stringify({
-    message: responseMessage
-  }), {
-    headers: {
-      ...corsHeaders,
-      'Content-Type': 'application/json',
-      'Connection': 'keep-alive'
+  try {
+    console.log('Edge function starting');
+    const { action, data } = await req.json();
+    let result;
+    let status = 200;
+    if (action === 'insert') {
+      result = await handleInsert(data);
+      if (!result.success) status = result.error === 'ValidationError' ? 400 : 500;
+      else if (result.partial) status = 207; // Multi-Status for partial success
+    } else if (action === 'confirmEmail') {
+      result = await confirmationEmail(data.email, data.name);
+      if (!result.success) status = 500;
+      else if (result.partial) status = 207;
+    } else {
+      result = {
+        success: false,
+        message: 'Invalid action',
+        error: 'InvalidAction'
+      };
+      status = 400;
     }
-  });
+    return new Response(JSON.stringify(result), {
+      status,
+      headers: {
+        ...corsHeaders,
+        'Content-Type': 'application/json',
+        'Connection': 'keep-alive'
+      }
+    });
+  } catch (err) {
+    console.error('Unexpected error:', err);
+    return new Response(JSON.stringify({
+      success: false,
+      message: 'Unexpected server error.',
+      error: err.message || 'UnknownError'
+    }), {
+      status: 500,
+      headers: {
+        ...corsHeaders,
+        'Content-Type': 'application/json',
+        'Connection': 'keep-alive'
+      }
+    });
+  }
 });

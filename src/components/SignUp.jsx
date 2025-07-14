@@ -24,19 +24,25 @@ function SignUp() {
       setLoading(false);
       return;
     } else {
-      console.log("Edge function response:", data);
-      if (
-        data &&
-        typeof data.message === "string" &&
-        data.message.toLowerCase().includes("error")
-      ) {
-        setError(data.message);
+      // data is now a structured object: { success, message, error, partial }
+      if (data && typeof data === "object") {
+        if (!data.success) {
+          setError(data.message || "An error occurred.");
+        } else if (data.partial) {
+          setError(data.message || "Partial success.");
+          setShowSuccess(true);
+          setTimeout(() => {
+            setShowSuccess(false);
+          }, 1000);
+        } else {
+          setError("");
+          setShowSuccess(true);
+          setTimeout(() => {
+            setShowSuccess(false);
+          }, 1000);
+        }
       } else {
-        setError("");
-        setShowSuccess(true);
-        setTimeout(() => {
-          setShowSuccess(false);
-        }, 1000);
+        setError("Unexpected response from server.");
       }
     }
     setLoading(false);
