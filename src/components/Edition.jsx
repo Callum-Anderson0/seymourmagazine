@@ -7,7 +7,8 @@ function Edition({
   description, 
   imageAlt = "Edition cover",
   children = null,
-  theme = "light" // "light" or "dark"
+  theme = "light",
+  childrenLayout = "justify-center" // Default to center, but can be any Tailwind classes
 }) {
   const lightThemeClasses = "p-6 bg-white shadow-md rounded-lg";
   const darkThemeClasses = "p-6 bg-black shadow-md rounded-lg";
@@ -84,9 +85,9 @@ function Edition({
             </p>
           </FadeContent>
           
-          {/* Children content with automatic theme styling - now stacked vertically */}
+          {/* Children content with automatic theme styling - now with customizable layout */}
           {children && (
-            <FadeContent className="self-center w-full h-full flex flex-col justify-center items-center gap-4" delay={0}>
+            <FadeContent className={`self-center w-full h-full flex flex-col ${childrenLayout} items-center gap-4`} delay={0}>
               {applyThemeToChildren(children, theme)}
             </FadeContent>
           )}
