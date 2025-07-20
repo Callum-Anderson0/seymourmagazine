@@ -84,9 +84,9 @@ function Edition({
             </p>
           </FadeContent>
           
-          {/* Children content with automatic theme styling */}
+          {/* Children content with automatic theme styling - now stacked vertically */}
           {children && (
-            <FadeContent className="self-center w-full h-full flex justify-center" delay={0}>
+            <FadeContent className="self-center w-full h-full flex flex-col justify-center items-center gap-4" delay={0}>
               {applyThemeToChildren(children, theme)}
             </FadeContent>
           )}

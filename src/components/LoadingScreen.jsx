@@ -13,7 +13,7 @@ function LoadingScreen() {
 
   return (
     <div
-      className={`fixed inset-0 bg-gray-800 z-50 transition-transform duration-500 ease-in-out ${
+      className={`fixed inset-0 bg-black z-50 transition-transform duration-500 ease-in-out ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       }`}
       style={{ height: '100dvh' }}
