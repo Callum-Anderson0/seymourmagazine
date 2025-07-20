@@ -17,10 +17,6 @@ function Information() {
           theme="dark"
           childrenLayout="justify-between"
         >
-          <h2 className={`text-2xl font-bold text-center`}>THE VISION</h2>
-          <p className={`text-center pb-4`}>
-            SEYMOUR is not just a magazine, it's a collective space for artists, writers, and creatives. Its aim is to platform smaller artists, offering support, exposure and community. We also hope to play a role in the return of print media ... PRINT IS NOT DEAD. To get involved, drop me a message on Instagram, my dms are always open and I'd looove to hear from you !!
-          </p>
           <EditionBuyNow theme="light" />
         </Edition>
 
@@ -33,10 +29,6 @@ function Information() {
           theme="light"
           // No childrenLayout prop = uses default "justify-center"
         >
-          <div className="flex flex-col gap-4 w-full">
-            <EditionSignUp />
-            <EditionInstagram />
-          </div>
         </Edition>
       </div>
     </div>

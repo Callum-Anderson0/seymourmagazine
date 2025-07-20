@@ -3,6 +3,7 @@ import Information from "./components/Information";
 import Legal from "./components/Legal";
 import Header from "./components/Header";
 import LoadingScreen from "./components/LoadingScreen";
+import Vision from "./components/vision";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <meta name="twitter:card" content="summary_large_image" />
 
       <LandingPad />
+      <Vision />
       <Information />
       <Legal />
     </div>
