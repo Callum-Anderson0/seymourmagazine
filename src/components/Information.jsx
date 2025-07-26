@@ -3,11 +3,20 @@ import EditionSignUp from "./EditionSignUp";
 import EditionBuyNow from "./EditionBuyNow";
 import EditionInstagram from "./EditionInstagram";
 import Button from "./Button";
+import Vision from "./vision";
 
 function Information() {
   return (
-    <div className="flex flex-col items-center justify-center bg-gray-100 p-1 md:p-8">
-      <div className="w-full mx-auto space-y-6">
+    <div
+      className="flex flex-1 flex-col md:flex-row h-[70vh] items-start justify-center p-1 md:p-4"
+    >
+      <div
+        className="w-1/3 h-full bg-cover bg-center rounded-lg shadow-lg mx-4"
+        style={{ backgroundImage: "url('./second edition (1).png')" }}
+      >
+        <Vision />
+      </div>
+      <div className="w-2/3 mx-auto space-y-4 h-full overflow-scroll [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
         {/* Second Edition - children distributed evenly */}
         <Edition 
           imageSrc="/second edition.png"
@@ -21,7 +30,7 @@ function Information() {
         </Edition>
 
         {/* First Edition - children centered (default) */}
-        <Edition 
+        <Edition
           imageSrc="/first edition.jpg"
           title="FIRST EDITION - SOLD OUT (ᗒᗣᗕ)"
           description="the very first edition of seymour is out & about and i'd love for you to have one !!! ⭐️ here's a little sneak peak, but there's lots and lots more to see 🤓 this is a lovely little collection of poetry, prose, arts and farts - anything goes 🦶 it'll look fab on your coffee table xx"

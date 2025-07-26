@@ -17,8 +17,6 @@ function App() {
       <meta name="twitter:card" content="summary_large_image" />
 
       <LandingPad />
-      <Vision />
-      <Information />
       <Legal />
     </div>
   );

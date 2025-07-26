@@ -52,7 +52,7 @@ function Legal() {
   const [information, setInformation] = useState();
 
   return (
-    <div className="legal-container bg-gray-800 text-xs leading-tight text-gray-200 mx-auto p-4 w-[100%]">
+    <div className="legal-container bg-black text-xs leading-tight text-gray-200 mx-auto p-4 w-[100%]">
       {legalPolicies.map((policy, idx) => (
         <span key={policy.key}>
           <span
